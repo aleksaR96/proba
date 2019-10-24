@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #flag input[type="radio"] {
+        margin-right: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="" action="https://localhost:44315/api/values" method="post" name="form">
+      <label for="name">Unesi ime proizvoda:</label><br>
+      <input type="text" id="name" name="name" value="" required size="80">
+      <br>
+      <label for="description">Unesi opis proizvoda:</label><br>
+      <textarea name="description" rows="8" cols="80" required></textarea>
+      <br>
+
+      <label for="selectCategoryID">Odaberi kategoriju proizvoda:</label><br>
+      <select class="" name="CategoryID" required id="selectCategoryID">
+        <option value="100">Mobilni telefoni</option>
+        <option value="101">Tablet racunari</option>
+        <option value="200">Desktop racunari</option>
+        <option value="201">Laptop racunari</option>
+        <option value="300">Racunarske komponente</option>
+        <option value="301">Periferije</option>
+        <option value="800">Televizor</option>
+      </select>
+      <br>
+
+      <label for="selectBrandID">Odaberi brend proizvoda:</label><br>
+      <select class="" name="BrandID" required id="selectBrandID">
+        <option value="1">Motorola</option>
+        <option value="2">Samsung</option>
+        <option value="3">Apple</option>
+        <option value="4">Nokia</option>
+        <option value="5">Lenovo</option>
+        <option value="6">Alcatel</option>
+        <option value="7">ZTE</option>
+        <option value="8">Huawei</option>
+        <option value="9">Acer</option>
+        <option value="10">Testa</option>
+        <option value="11">LG</option>
+        <option value="12">Microsoft</option>
+        <option value="13">Asus</option>
+      </select>
+
+      <br>
+      <label for="price">Unesi cenu proizvoda</label><br>
+      <input type="number" id="price" name="price" value="" min="0" required>
+
+      <br>
+      <label for="quantity">Unesi kolicinu proizvoda</label><br>
+      <input type="number" id="quantity" name="quantity" value="0" min="0" required>
+
+      <br>
+      <label for="pinned">Pinuj</label><br>
+      <input type="radio" id="pinned" name="pinned" value="pinned">
+
+      <br>
+      <fieldset id="flag">
+        <label for="discount">Snizeno</label>
+        <input type="radio" id="discount" name="flag" value="discount" onchange="toggleDiscount()">
+
+        <div class="" id="discountDiv" style="display: none;">
+          <br>
+          <label for="discountAmount">Unesi snizenje</label><br>
+          <input type="number" id="discountAmount" name="discountAmount" value="0" min="0">
+        </div>
+
+        <label for="new">Novo</label>
+        <input type="radio" id="new" name="flag" value="new" onchange="toggleDiscount()">
+        <label for="popular">Popularno</label>
+        <input type="radio" id="popular" name="flag" value="popular" onchange="toggleDiscount()">
+      </fieldset>
+
+      <br><br>
+      <input type="submit" name="submit" value="Dodaj proizvod">
+    </form>
+
+    <script type="text/javascript">
+
+      var discountRadio = document.getElementById("discount");
+
+      function toggleDiscount() {
+        if(discountRadio.checked == true) {
+          document.getElementById("discountDiv").style.display = "block";
+        } else {
+          document.getElementById("discountDiv").style.display = "none";
+        }
+      }
+
+    </script>
+  </body>
+</html>
